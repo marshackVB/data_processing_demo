@@ -84,6 +84,10 @@ display(transformation_2)
 
 # COMMAND ----------
 
+display(spark.table('policy_attributes').select('BLUEBOOK', 'OLDCLAIM', 'CLM_AMT', 'CAR_TYPE'))
+
+# COMMAND ----------
+
 # MAGIC %md A resuable function where a common problem can be solved only once
 
 # COMMAND ----------
@@ -103,10 +107,6 @@ def replace_special_characters(df, column_name_and_transformation):
   transformed_df = df.selectExpr(regex)
   
   return transformed_df
-
-# COMMAND ----------
-
-display(spark.table('policy_attributes').select('BLUEBOOK', 'OLDCLAIM', 'CLM_AMT', 'CAR_TYPE'))
 
 # COMMAND ----------
 
